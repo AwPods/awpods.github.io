@@ -2,16 +2,68 @@
 title: "p8105_hw4_zw2975"
 author: "Zhiyu Wei"
 date: 2024-10-28
-output: github_document
+output: 
+  flexdashboard::flex_dashboard:
+    orientation: columns
+    vertical_layout: fill
 ---
 
 ```{r setup, include = FALSE}
 library(tidyverse)
 library(dplyr)
+library(plotly)
+library(p8105.datasets)
+library(flexdashboard)
 ```
 
 
 ## Problem 2
+```{r import dataset}
+data("rest_inspec")
+```
+
+Clean dataset:
+1. exclude na
+2. mutate variable type
+3. exclude unnecessary variables
+
+```{r clean data}
+rest_inspec = janitor::clean_names(rest_inspec)
+rest_inspec = rest_inspec |>
+  drop_na()|>
+  mutate(inspec_date = as.Date(inspection_date)) |>
+  mutate(grad_date = as.Date(grade_date)) |>
+  select(-grade_date, -inspection_date) |>
+  filter(!boro == "missing")
+```
+
+Column {data-width=650}
+-----------------------------------------------------------------------
+
+### Comparison of number of different grades in each borough 
+
+```{r plot 1}
+rest_inspec |>
+  ggplot(aes(x = ))
+
+boxplot = 
+  rest_inspec |> 
+  drop_na() |>
+  group_by(cuisine_description) |>
+  ggplot(aes(x = cuisine_description, y = score, fill = cuisine_description)) +
+  geom_boxplot()+
+  theme(axis.text.x = element_text(angle = 90, hjust = 1))+
+  labs(x = "Cuisine type", 
+       y = "Inspection score",
+       title = "Inspection score by cuisine type in each borough")
+
+ggplotly(boxplot)
+
+```
+
+
+### Comparison between 
+
 ```{r}
 
 ```

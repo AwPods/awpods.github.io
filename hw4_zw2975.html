@@ -282,6 +282,15 @@ $(document).ready(function () {
 
 <div id="problem-2" class="section level2">
 <h2>Problem 2</h2>
+<pre class="r"><code>data(&quot;rest_inspec&quot;)</code></pre>
+<p>Clean dataset: 1. exclude na 2. mutate variable type 3. exclude
+unnecessary variables</p>
+<pre class="r"><code>rest_inspec = janitor::clean_names(rest_inspec)
+rest_inspec = rest_inspec |&gt;
+  drop_na()|&gt;
+  mutate(inspec_date = as.Date(inspection_date)) |&gt;
+  mutate(grad_date = as.Date(grade_date)) |&gt;
+  select(-grade_date, -inspection_date)</code></pre>
 </div>
 
 
