@@ -20,7 +20,7 @@ library(lubridate)
 ## Problem 2
 
 
-Column {data-width=2000}
+Column {data-width=3200}
 -----------------------------------------------------------------------
 
 ### Cuisine type comaprison
@@ -48,7 +48,7 @@ rest_inspec = rest_inspec |>
 ```
 
 
-Column {data-width=1800}
+Column {data-width=2400}
 -----------------------------------------------------------------------
 
 ### Comparison of scores in each borough
