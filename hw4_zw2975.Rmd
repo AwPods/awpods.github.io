@@ -14,6 +14,7 @@ library(dplyr)
 library(plotly)
 library(p8105.datasets)
 library(flexdashboard)
+library(lubridate)
 ```
 
 
@@ -37,34 +38,40 @@ rest_inspec = rest_inspec |>
   filter(!boro == "missing")
 ```
 
-Column {data-width=650}
+Column {data-width=250}
 -----------------------------------------------------------------------
 
-### Comparison of number of different grades in each borough 
+### Comparison of scores in each borough
 
 ```{r plot 1}
+rest_inspec |> 
+  filter(!boro == "Missing") |>
+  plot_ly(x = ~boro, y = ~score, color = ~boro, type = "box", colors = "viridis")
+```
+
+Column {data-width=350}
+-----------------------------------------------------------------------
+
+### Annual trend of Manhattan restuarant inspection 
+
+```{r month trend plot}
 rest_inspec |>
-  ggplot(aes(x = ))
-
-boxplot = 
-  rest_inspec |> 
-  drop_na() |>
-  group_by(cuisine_description) |>
-  ggplot(aes(x = cuisine_description, y = score, fill = cuisine_description)) +
-  geom_boxplot()+
-  theme(axis.text.x = element_text(angle = 90, hjust = 1))+
-  labs(x = "Cuisine type", 
-       y = "Inspection score",
-       title = "Inspection score by cuisine type in each borough")
-
-ggplotly(boxplot)
-
+  filter(!grade == "Not Yet Graded", boro == "MANHATTAN")|>
+  ggplot(aes(x = inspec_date, y = score, color = grade)) +
+  geom_point(alpha = 0.1)+
+  labs(title = "Annual Trend of NYC Restaurant Inspection Grades", x = "Year", y = "Score") 
 ```
 
 
-### Comparison between 
+Column {data-width=400}
+-----------------------------------------------------------------------
 
-```{r}
+### Number of inspection in each cuisine type 
 
+```{r }
+rest_inspec |> 
+  count(cuisine_description) |> 
+  mutate(cuisine_description = fct_reorder(cuisine_description, n)) |> 
+  plot_ly(x = ~cuisine_description, y = ~n, color = ~cuisine_description, type = "bar", colors = "viridis")
 ```
 
