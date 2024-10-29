@@ -17,18 +17,19 @@ library(flexdashboard)
 library(lubridate)
 ```
 
-
 ## Problem 2
-```{r import dataset}
+
+
+Column {data-width=400}
+-----------------------------------------------------------------------
+
+```{r clean data, include = FALSE}
 data("rest_inspec")
-```
 
-Clean dataset:
-1. exclude na
-2. mutate variable type
-3. exclude unnecessary variables
-
-```{r clean data}
+# Clean dataset:
+# 1. exclude na
+# 2. mutate variable type
+# 3. exclude unnecessary variables
 rest_inspec = janitor::clean_names(rest_inspec)
 rest_inspec = rest_inspec |>
   drop_na()|>
@@ -38,8 +39,6 @@ rest_inspec = rest_inspec |>
   filter(!boro == "missing")
 ```
 
-Column {data-width=250}
------------------------------------------------------------------------
 
 ### Comparison of scores in each borough
 
@@ -49,12 +48,12 @@ rest_inspec |>
   plot_ly(x = ~boro, y = ~score, color = ~boro, type = "box", colors = "viridis")
 ```
 
-Column {data-width=350}
+Column {data-width=600}
 -----------------------------------------------------------------------
 
 ### Annual trend of Manhattan restuarant inspection 
 
-```{r month trend plot}
+```{r annual trend plot}
 rest_inspec |>
   filter(!grade == "Not Yet Graded", boro == "MANHATTAN")|>
   ggplot(aes(x = inspec_date, y = score, color = grade)) +
@@ -63,12 +62,7 @@ rest_inspec |>
 ```
 
 
-Column {data-width=400}
------------------------------------------------------------------------
-
-### Number of inspection in each cuisine type 
-
-```{r }
+```{r cuisine type camparison}
 rest_inspec |> 
   count(cuisine_description) |> 
   mutate(cuisine_description = fct_reorder(cuisine_description, n)) |> 
