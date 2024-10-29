@@ -1,28 +1,28 @@
 ---
-title: "My awesome website"
+title: "Audrey's awesome website"
 output: 
   html_document:
     toc: true
     toc_float: true
 ---
 
-# This is Jeff's awesome website
+## Welcome to Audrey's website!!!
+
+My name is Zhiyu (Audrey) Wei, and I'm a Master of Public Health candidate at Columbia University's Mailman School of Public Health. I majored in biochemistry during my undergraduate studies and switched to biostatistics for my master's education. 
+
+My research interests lie in utilizing data analysis and statistical models to comprehend health-related datasets and in exploring how different statistical models can convey various messages regarding the data.
+
+I have my 2024 version of [resume](file/ZhiyuWeiResume)
+
+You can contact me via:
+[email](mailto:zwei2023@outlook.com)
+or
+[LinkedIn](https://www.linkedin.com/in/audreywei/)
+
+Here is my [Github](https://github.com/awpods) account where I upload my data science work. 
+
+You can also visit my [official website](index.html) I created during the summer of 2024
 
 
-![](https://media.giphy.com/media/drXGoW1iudhKw/giphy.gif)
+Here is my [HW4 assignment dashboard (problem2)](hw4_zw2975.html).
 
-This is an **awesome website** about data science and elmo?
-
-Sometimes I use [google](https://www.google.com/) to do data science when I'm stuck.
-
-This is my cat Ted. He is a good cat.
-
-![](images/ted.jpg)
-
-<img src="images/ted.jpg" style="width:75%">
-
-
-If you'd like to learn more about this website, visit [this page](about.html).
-
-
-NOW I CAN PUT STUFF ON THE INTERNET
