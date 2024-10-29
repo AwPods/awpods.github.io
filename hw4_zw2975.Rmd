@@ -1,0 +1,18 @@
+---
+title: "p8105_hw4_zw2975"
+author: "Zhiyu Wei"
+date: 2024-10-28
+output: github_document
+---
+
+```{r setup, include = FALSE}
+library(tidyverse)
+library(dplyr)
+```
+
+
+## Problem 2
+```{r}
+
+```
+
