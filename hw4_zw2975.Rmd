@@ -20,9 +20,17 @@ library(lubridate)
 ## Problem 2
 
 
-Column {data-width=1400}
+Column {data-width=2000}
 -----------------------------------------------------------------------
 
+### Cuisine type comaprison
+
+```{r cuisine type camparison}
+rest_inspec |> 
+  count(cuisine_description) |> 
+  mutate(cuisine_description = fct_reorder(cuisine_description, n)) |> 
+  plot_ly(x = ~cuisine_description, y = ~n, color = ~cuisine_description, type = "bar", colors = "viridis")
+```
 ```{r clean data, include = FALSE}
 data("rest_inspec")
 
@@ -40,6 +48,9 @@ rest_inspec = rest_inspec |>
 ```
 
 
+Column {data-width=1800}
+-----------------------------------------------------------------------
+
 ### Comparison of scores in each borough
 
 ```{r plot 1}
@@ -47,9 +58,6 @@ rest_inspec |>
   filter(!boro == "Missing") |>
   plot_ly(x = ~boro, y = ~score, color = ~boro, type = "box", colors = "viridis")
 ```
-
-Column {data-width=1500}
------------------------------------------------------------------------
 
 ### Annual trend of Manhattan restuarant inspection 
 
@@ -61,11 +69,4 @@ rest_inspec |>
   labs(title = "Annual Trend of NYC Restaurant Inspection Grades", x = "Year", y = "Score") 
 ```
 
-
-```{r cuisine type camparison}
-rest_inspec |> 
-  count(cuisine_description) |> 
-  mutate(cuisine_description = fct_reorder(cuisine_description, n)) |> 
-  plot_ly(x = ~cuisine_description, y = ~n, color = ~cuisine_description, type = "bar", colors = "viridis")
-```
 
