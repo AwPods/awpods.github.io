@@ -20,7 +20,7 @@ library(lubridate)
 ## Problem 2
 
 
-Column {data-width=400}
+Column {data-width=1400}
 -----------------------------------------------------------------------
 
 ```{r clean data, include = FALSE}
@@ -48,7 +48,7 @@ rest_inspec |>
   plot_ly(x = ~boro, y = ~score, color = ~boro, type = "box", colors = "viridis")
 ```
 
-Column {data-width=600}
+Column {data-width=1500}
 -----------------------------------------------------------------------
 
 ### Annual trend of Manhattan restuarant inspection 
