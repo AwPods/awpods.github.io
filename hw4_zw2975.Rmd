@@ -8,6 +8,8 @@ output:
     vertical_layout: fill
 ---
 
+Go back to my first [introductory page](AudreySite.html)
+
 ```{r setup, include = FALSE}
 library(tidyverse)
 library(dplyr)
