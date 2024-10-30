@@ -14,4 +14,4 @@ My name is Zhiyu (Audrey) Wei, and I'm a Master of Public Health candidate at Co
 
 My research interests lie in utilizing data analysis and statistical models to comprehend health-related datasets and in exploring how different statistical models can convey various messages regarding the data.
 
-[Go back to first page](AudreySite.html)
+[Go back to introductory landing page](AudreySite.html)
